@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雅思学习资源导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .navigation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .nav-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .nav-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .icon-basic { background: linear-gradient(45deg, #56ab2f, #a8e6cf); }
+        .icon-advanced { background: linear-gradient(45deg, #ff6b6b, #feca57); }
+        .icon-reading { background: linear-gradient(45deg, #4ecdc4, #44a08d); }
+        .icon-writing { background: linear-gradient(45deg, #9b59b6, #e74c3c); }
+        .icon-company { background: linear-gradient(45deg, #3498db, #2c3e50); }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .card-description {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .card-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .card-link::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-link:hover::after {
+            transform: translateX(4px);
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .navigation-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .nav-card {
+                padding: 20px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 雅思学习资源导航</h1>
+            <p>一站式雅思备考资料库 - 从基础到高级，全面覆盖</p>
+        </div>
+
+        <div class="navigation-grid">
+            <!-- BBC基础语料库 -->
+            <div class="nav-card">
+                <div class="card-header">
+                    <div class="card-icon icon-basic">📚</div>
+                    <div>
+                        <div class="card-title">BBC Real Easy English</div>
+                        <div class="card-subtitle">基础语料库</div>
+                    </div>
+                </div>
+                <div class="level-badge">适合雅思基础学员</div>
+                <div class="card-description">
+                    BBC官方英语学习资源。
+                </div>
+                <a href="https://www.bbc.co.uk/learningenglish/english/features/real-easy-english" class="card-link" target="_blank">
+                    开始学习
+                </a>
+            </div>
+
+            <!-- 公司资料库 -->
+            <div class="nav-card">
+                <div class="card-header">
+                    <div class="card-icon icon-company">🏢</div>
+                    <div>
+                        <div class="card-title">公司资料库</div>
+                        <div class="card-subtitle">内部学习资源</div>
+                    </div>
+                </div>
+                <div class="level-badge">内部专属资料</div>
+                <div class="card-description">
+                    精心整理的内部学习资料。
+                </div>
+                <a href="https://www.notion.so/1f88f35ae36c806fba06c3265e5fb326?v=1f88f35ae36c804d87c9000c28be4f70&source=copy_link" class="card-link" target="_blank">
+                    访问资料库
+                </a>
+            </div>
+
+            <!-- 跟着外网学雅思 -->
+            <div class="nav-card">
+                <div class="card-header">
+                    <div class="card-icon icon-advanced">🌍</div>
+                    <div>
+                        <div class="card-title">跟着外网学雅思</div>
+                        <div class="card-subtitle">国际化学习资源</div>
+                    </div>
+                </div>
+                <div class="level-badge">进阶学习板块</div>
+                <div class="card-description">
+                    原汁原味的英语学习
+                </div>
+                <a href="https://sideways-distance-692.notion.site/5890cf38022049b9a8c13f66ad42c389?source=copy_link" class="card-link" target="_blank">
+                    探索资源
+                </a>
+            </div>
+
+            <!-- 现有阅读补充篇目 -->
+            <div class="nav-card">
+                <div class="card-header">
+                    <div class="card-icon icon-reading">📖</div>
+                    <div>
+                        <div class="card-title">阅读补充篇目</div>
+                        <div class="card-subtitle">阅读技能提升</div>
+                    </div>
+                </div>
+                <div class="level-badge">阅读专项训练</div>
+                <div class="card-description">
+                    精选阅读材料合集。
+                </div>
+                <a href="https://y0ufhmh1kyh.feishu.cn/docx/BCprdJjP5oNkY1xLRalcIQVHnx3" class="card-link" target="_blank">
+                    开始阅读
+                </a>
+            </div>
+
+            <!-- 雅思写作外刊语料 -->
+            <div class="nav-card pulse">
+                <div class="card-header">
+                    <div class="card-icon icon-writing">✍️</div>
+                    <div>
+                        <div class="card-title">雅思写作外刊语料</div>
+                        <div class="card-subtitle">写作素材库</div>
+                    </div>
+                </div>
+                <div class="level-badge">写作提分利器</div>
+                <div class="card-description">
+                    地道表达、论证思路。
+                </div>
+                <a href="https://y0ufhmh1kyh.feishu.cn/docx/D5fgduLEYoxn1IxfGKecBdYynrg" class="card-link" target="_blank">
+                    提升写作
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 添加一些交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.nav-card');
+            
+            cards.forEach((card, index) => {
+                // 延迟显示动画
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+
+            // 点击统计
+            const links = document.querySelectorAll('.card-link');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    console.log('访问:', this.closest('.nav-card').querySelector('.card-title').textContent);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
